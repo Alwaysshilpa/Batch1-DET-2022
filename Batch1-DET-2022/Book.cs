@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace Batch1_DET_2022;
-   using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,32 +13,32 @@ using System.Threading.Tasks;
 
 
 
-    internal class Book
+internal class Book
+{
+    public string Name { get; set; }
+    public int Price { get; set; }
+    public int Qty { get; set; }
+    public Author author { get; set; }  //containment
+
+    public override string ToString()
     {
-        public string Name { get; set; }
-        public int Price { get; set; }
-        public int Qty { get; set; }
-        public Author author { get; set; }  //containment
-
-        public override string ToString()
-        {
-            return $"Book[name={Name},Author={this.author.ToString()},price={Price},qty={Qty}";
-        }
+        return $"Book[name={Name},Author={this.author.ToString()},price={Price},qty={Qty}";
     }
+}
 
-    public class TestBook
+public class TestBook
+{
+    public static void Main()
     {
-        public static void Main()
+        Book b = new Book
         {
-            Book b = new Book
-            {
-                Name = "Mastering C#",
-                author = new Author { Name = "Mary", EMail = "mary.s", Gender = 'f' },
-                Price = 500,
-                Qty = 45
-            };
+            Name = "Mastering C#",
+            author = new Author { Name = "Mary", EMail = "mary.s", Gender = 'f' },
+            Price = 500,
+            Qty = 45
+        };
 
-            Author alex = new Author { Name = "Roja", EMail = "roja.p", Gender = 'f' };
-            Book dummyBook = new Book { Name = "C#", author = alex, Price = 19, Qty = 99 };
-        }
+        Author alex = new Author { Name = "Roja", EMail = "roja.p", Gender = 'f' };
+        Book dummyBook = new Book { Name = "C#", author = alex, Price = 19, Qty = 99 };
     }
+}
